@@ -31,7 +31,7 @@ namespace Collections
 
             //Multiplication Table
             int[,] multTable = new int[10, 10];
-            for(int i=0; i<10; i++){
+            for(int i=1; i<10; i++){
                 for(int j=0; j<10; j++){
                     if(i==0){
                         multTable[0,j] = j;
@@ -44,10 +44,8 @@ namespace Collections
                     }
                 }
             }
-
-            // foreach(int line in multTable){
-            //     System.Console.Write(line);
-            // }
+                
+            System.Console.WriteLine(multTable[3,3]);
 
 
 
@@ -63,6 +61,27 @@ namespace Collections
             System.Console.WriteLine(flavors[3]);
             flavors.RemoveAt(3);
             System.Console.WriteLine(flavors[3]);
+            System.Console.WriteLine(flavors.Count);
+
+
+
+
+
+
+            //User info Dictionary
+            Dictionary<string, string> users = new Dictionary<string, string>();
+            foreach(string name in names){
+                users.Add(name, null);
+            }
+            
+            Random rand = new Random();
+            // foreach(var user in users.Keys){
+            //     users[user] = "taco";
+            // }
+
+            foreach(KeyValuePair<string, string> entry in users){
+                Console.WriteLine(entry.Key + " - " + entry.Value);
+            }
         }
     }
 }

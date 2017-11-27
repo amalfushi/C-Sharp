@@ -1,19 +1,17 @@
 //11.27 insertion sort
-function insertionSort(arr){
-    let temp = arr[0]
-    for(i=1; arr.length-1; i++){
-        if(arr[i]>temp){
-            let x = i
-            while(arr[x]>temp){
-                arr[x] = arr[x-1];
-                x--;
-            }
-            arr[x] = temp;
-        }
-    }
-    return arr;
-}
+// function insertionSort(arr){
+//     for(i=0; i< arr.length; i++){
+//         var temp = arr[i];
+//         var x = i-1;
+//         while(x>= 0 && arr[x]> temp){
+//             arr[x+1] = arr[x];
+//             x--;
+//         }
+//         arr[x+1] = temp;
+//     }
+//     return arr;
+// }
 
-array = [10,9,-1,77,13];
-console.log(array)
-console.log(insertionSort(array));
+// array = [10,9,-1,77,13];
+// console.log(array)
+// console.log(insertionSort(array));
