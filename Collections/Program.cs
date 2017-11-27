@@ -69,12 +69,13 @@ namespace Collections
 
 
             //User info Dictionary
+            Random rand = new Random();
             Dictionary<string, string> users = new Dictionary<string, string>();
             foreach(string name in names){
-                users.Add(name, null);
+                users.Add(name, flavors[rand.Next(flavors.Count)]);
             }
             
-            Random rand = new Random();
+            
             // foreach(var user in users.Keys){
             //     users[user] = "taco";
             // }
