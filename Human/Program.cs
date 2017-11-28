@@ -1,54 +1,36 @@
 ﻿using System;
 
-namespace Human
+namespace WizNinSam
 {
     class Program
     {
         static void Main(string[] args)
         {
             Human Huey = new Human("Huey");
-            Human Lewis  = new Human("Lewis", 85, 4, 2);
+            Wizard Lewis  = new Wizard("Lewis");
+            Ninja Ryu = new Ninja("Ryu");
+            Samurai Jack = new Samurai("Jack");
 
-            Lewis.Attack(Huey);
+            Lewis.Fireball(Huey);
+            Lewis.Fireball(Jack);
+            Lewis.Fireball(Ryu);
             System.Console.WriteLine(Huey.health);
 
             Huey.Attack(Lewis);
+            Ryu.Steal(Jack);
+            Ryu.Steal(Huey);
+            Ryu.Attack(Lewis);
+            Ryu.Get_Away();
+
+            Jack.Death_Blow(Lewis);
+            Jack.Meditate();
+            Jack.Attack(Ryu);
+            Jack.Death_Blow(Ryu);
+
+            System.Console.WriteLine(Huey.health);
             System.Console.WriteLine(Lewis.health);
+            System.Console.WriteLine(Ryu.health);
+            System.Console.WriteLine(Jack.health);
         }
-    }
-
-    public class Human
-    {
-        public string name { get; }
-        public int health { get; set; }
-        public int strength { get; set; }
-        public int intelligence { get; set; }
-        public int dexterity { get; set; }
-
-        public Human(string moniker, int hp = 100, int stre = 3, int inte = 3, int dext = 3)
-        {
-            name = moniker;
-            health = hp;
-            strength = stre;
-            intelligence = inte;
-            dexterity = dext;
-        }
-
-        public void Attack(Object opponent)
-        {
-            if (opponent is Human)
-            {
-                Human opp = opponent as Human;
-                System.Console.WriteLine("{0} attacked {1} for {2} points of damage!", name, opp.name, (strength*5));
-                opp.health -= strength*5;
-            }
-           
-        }
-
-        // public void Attack(Human opponent)
-        // {
-        //     System.Console.WriteLine("{0} is attacking {1} for {2} points of damage!", name, opponent.name, (strength*5));
-        //     opponent.health -= strength*5;
-        // }
     }
 }
