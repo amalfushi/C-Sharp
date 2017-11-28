@@ -38,7 +38,7 @@ namespace Human
         {
             if (opponent is Human)
             {
-                Human opp = (Human)opponent;
+                Human opp = opponent as Human;
                 System.Console.WriteLine("{0} attacked {1} for {2} points of damage!", name, opp.name, (strength*5));
                 opp.health -= strength*5;
             }
