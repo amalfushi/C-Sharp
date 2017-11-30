@@ -2,4 +2,5 @@ week 1
     mon -- Intro(Puzzles);
     tue -- OOP(4pm Deck of cards, wizard ninja samurai);
     wed -- OOP(Game);
-    
+    thu -- Linq(Simple Crud)
+    fri -- Intro to .netCore (Portfolio)
