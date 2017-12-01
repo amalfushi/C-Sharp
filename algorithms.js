@@ -43,12 +43,31 @@ function mergeSortedArrays(left, right){
         if(typeof left[curPos.left]==='undefined'){
             arr.push(right[curPos.right++]);
         } else if(left[curPos.left] > right[curPos.right]){
-            arr.push(right[curPos.right]++);
+            arr.push(right[curPos.right++]);
         } else {
             arr.push(left[curPos.left++]);
         }
     }
     return arr;
 }
-console.log(partition(array));
-console.log(mergeSortedArrays([-1,1,3,5,7], [2,4,6,8]));
+// console.log(partition(array));
+// console.log(mergeSortedArrays([-1,1,3,5,7], [2,4,6,8]));
+
+//11.30 
+function mergeSort(arr){
+    if(arr.length <= 1){
+        return arr;
+    }
+    let left = [];
+    let right = [];
+    for(let i=0; i<arr.length; i++){
+        if(i < arr.length/2){
+            left.push(arr[i]);
+        } else {
+            right.push(arr[i]);
+        }
+    }
+    return mergeSortedArrays(mergeSort(left), mergeSort(right));
+}
+
+console.log(mergeSort([100, 5, 8, 15, -13, 88, 2, -1, 10000, 0, 1, 0]));
