@@ -1,0 +1,22 @@
+body {
+    min-height: 75rem;
+    padding-top: 4.5rem;
+}
+
+#headshot {
+    height: 150px;
+    border-radius: 75px;
+    display: inline-block;
+    margin-right: 20px;
+}
+
+.about {
+    max-width: 80%;
+    margin-left: 20px;
+}
+
+.row {
+    display: inline-flex;
+    flex-direction: row;
+}
+  
