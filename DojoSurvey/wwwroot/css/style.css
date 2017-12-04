@@ -1,0 +1,28 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    margin: auto;
+    padding: 20px;
+}
+
+.horizontal {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 360px;
+}
+
+.subwrapper {
+    display: inline-flex;
+    flex-direction: column;
+    width: 360px;
+}
+
+.errors {
+    color: darkred;
+}
+
+h3 {
+    display: inline-block;
+}
