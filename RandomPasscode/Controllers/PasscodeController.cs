@@ -15,7 +15,7 @@ namespace RandomPasscode
         [HttpGet]
         public IActionResult Index()
         {
-            HttpContext.Session.Clear();
+            // HttpContext.Session.Clear();    <-- uncomment this if ajax works
             ViewBag.Passcode = genPasscode();
             int? attempts = HttpContext.Session.GetInt32("attempts");
             ViewBag.Attempts = (int)attempts;
