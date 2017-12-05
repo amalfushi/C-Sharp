@@ -1,0 +1,12 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    margin: 20px auto;
+    width: 500px;
+}
+
+.horizontal {
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: space-between;
+}

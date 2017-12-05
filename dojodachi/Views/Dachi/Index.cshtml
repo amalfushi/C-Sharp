@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Dojodachi!</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <link rel="stylesheet" href="~/css/style.css" type="text/css">
+</head>
+<body>
+    <div class="wrapper">
+        <div class="horizontal">
+            <h5>Fullness: @ViewBag.DojoDachi.Fullness</h5>
+            <h5>Happiness: @ViewBag.DojoDachi.Happiness</h5>
+            <h5>Meals: @ViewBag.DojoDachi.Meals</h5>
+            <h5>Energy: @ViewBag.DojoDachi.Energy</h5>
+        </div>
+        <div class="main">
+            <div class="dojodachi-display center-text center-vertical">
+                <span class="center">@ViewBag.Reaction</span>
+            </div>
+            <div class="center-text">
+                <span>@ViewBag.Message</span>
+            </div>
+         </div>
+
+        <div class="button-holder">
+            @{
+                if(ViewBag.Status == "running")
+                {
+                    <a href="feed"><button>Feed</button></a>
+                    <a href="play"><button>Play</button></a>
+                    <a href="work"><button>Work</button></a>
+                    <a href="sleep"><button>Sleep</button></a>
+
+                    <!-- <div class="bar-display">
+                        <form action="/performAction" method="post">
+                            <input type="hidden" value="feed" name="action">
+                            <button type="submit">Feed</button>
+                        </form>
+                    </div>
+                    <div class="bar-display">
+                        <form action="/performAction" method="post">
+                            <input type="hidden" value="play" name="action">
+                            <button type="submit">Play</button>
+                        </form>
+                    </div>
+                    <div class="bar-display">
+                        <form action="/performAction" method="post">
+                            <input type="hidden" value="work" name="action">
+                            <button type="submit">Work</button>
+                        </form>
+                    </div>
+                    <div class="bar-display">
+                        <form action="/performAction" method="post">
+                            <input type="hidden" value="sleep" name="action">
+                            <button type="submit">Sleep</button>
+                        </form>
+                    </div> -->
+                }
+                else if(ViewBag.Status == "over")
+                {
+                    <div class="center-text">
+                        <a href="/reset" method="post"><button>Reset?</button></a>
+                    </div>
+                }
+            }
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="../../../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <script src="../../../../assets/js/vendor/popper.min.js"></script>
+    <script src="../../../../dist/js/bootstrap.min.js"></script>
+</body>
+</html>
