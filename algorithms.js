@@ -70,4 +70,42 @@ function mergeSort(arr){
     return mergeSortedArrays(mergeSort(left), mergeSort(right));
 }
 
-console.log(mergeSort([100, 5, 8, 15, -13, 88, 2, -1, 10000, 0, 1, 0]));
+function Heap() {
+    let arr = [];
+    arr.push(null)
+}
+
+Heap.prototype.add = function(val) {
+    this.arr.push(val);
+    let i = this.arr.length - 1;
+    let k = math.floor(i / 2);
+    while (arr[k] > val) {
+        temp = this.arr[k];
+        this.arr[k] = this.arr[i];
+        this.arr[i] = temp;
+        i = k;
+        k = math.floor(i / 2);
+    }
+    return this;
+}
+Heap.prototype.extract = function() {
+    let temp = this.arr[i];
+    this.arr[1] = this.arr[this.arr.length];
+    this.arr[this.arr.length - 1] = temp;
+    let i = 1;
+    let k = 2;
+    while (this.arr[k] < this.arr[i]) {
+        let temp1 = this.arr[i];
+        this.arr[i] = this.arr[k];
+        this.arr[k] = temp1;
+        i = k;
+        k = 2 * k;
+    }
+    return this.arr.pop();
+}
+
+let h1 = new Heap();
+
+h1.add(4).add(2).add(6).add(99).add(2).add(1).add(29).add(17).add(22).add(3)
+
+console.log(h1);
