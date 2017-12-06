@@ -1,0 +1,16 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<h1>@ViewBag.Pokemon["name"]</h1>
+<h3>Types</h3>
+@foreach (var type in @ViewBag.Pokemon["types"]){
+    <p>@type["type"]["name"]</p>
+}
+<h3>Height</h3>
+<p>@((double)ViewBag.Pokemon["height"]/10) m</p>
+<h3>weight</h3>
+<p>@((double)ViewBag.Pokemon["weight"]/10) kg</p>
+
+
+<!-- all this logic should be in controller -->
