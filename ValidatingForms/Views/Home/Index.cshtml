@@ -1,0 +1,44 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<form action="/register" method="POST">
+    <h1>Enter your information</h1>
+
+    <label>First Name</label>
+    <input type="text" name="First_Name" id="Firstt_Name">
+
+    <label>Last Name</label>
+    <input type="text" name="Last_Name" id="Last_Name">
+
+    <label>Age</label>
+    <input type="number" name="Age" id="Age" min="0" max="120">
+
+    <label>Email</label>
+    <input type="text" name="Email" id="Email">
+
+    <label>Password</label>
+    <input type="text" name="Password" id="Password">
+
+    <label>Confirm Password</label>
+    <input type="text" name="C_Password" id="C_Password">
+
+    <input type="submit" value="Submit">
+</form>
+
+<div>
+    @{
+        if(!ViewBag.Status)
+        {
+            foreach(var error in @ViewBag.Errors)
+            {
+                //If there are any errors for a field...
+                if(@error.Errors.Count > 0)
+                {
+                    // We show the first error for that field
+                    <p>@error.Errors[0].ErrorMessage</p>
+                }
+            }
+        }
+    }
+</div>

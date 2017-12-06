@@ -70,42 +70,107 @@ function mergeSort(arr){
     return mergeSortedArrays(mergeSort(left), mergeSort(right));
 }
 
-function Heap() {
-    let arr = [];
-    arr.push(null)
-}
+// function Heap() {
+//     var arr = [];
+//     arr.push(null)
+// }
 
-Heap.prototype.add = function(val) {
-    this.arr.push(val);
-    let i = this.arr.length - 1;
-    let k = math.floor(i / 2);
-    while (arr[k] > val) {
-        temp = this.arr[k];
-        this.arr[k] = this.arr[i];
-        this.arr[i] = temp;
-        i = k;
-        k = math.floor(i / 2);
+// Heap.prototype.add = function(val) {
+//     this.arr.push(val);  <---this fucker is broke
+//     let i = this.arr.length - 1;
+//     let k = math.floor(i / 2);
+//     while (arr[k] > val) {
+//         temp = this.arr[k];
+//         this.arr[k] = this.arr[i];
+//         this.arr[i] = temp;
+//         i = k;
+//         k = math.floor(i / 2);
+//     }
+//     return this;
+// }
+// Heap.prototype.extract = function() {
+//     let temp = this.arr[i];
+//     this.arr[1] = this.arr[this.arr.length];
+//     this.arr[this.arr.length - 1] = temp;
+//     let i = 1;
+//     let k = 2;
+//     while (this.arr[k] < this.arr[i]) {
+//         let temp1 = this.arr[i];
+//         this.arr[i] = this.arr[k];
+//         this.arr[k] = temp1;
+//         i = k;
+//         k = 2 * k;
+//     }
+//     return this.arr.pop();
+// }
+
+class Node {
+    constructor(val, priority){
+        this.val = val;
+        this.priority = priority;
     }
-    return this;
 }
-Heap.prototype.extract = function() {
-    let temp = this.arr[i];
-    this.arr[1] = this.arr[this.arr.length];
-    this.arr[this.arr.length - 1] = temp;
-    let i = 1;
-    let k = 2;
-    while (this.arr[k] < this.arr[i]) {
-        let temp1 = this.arr[i];
-        this.arr[i] = this.arr[k];
-        this.arr[k] = temp1;
-        i = k;
-        k = 2 * k;
+class PriorityQueue {
+    constructor(){
+        this.heap = [null]
     }
-    return this.arr.pop();
+    
+    insert(value, priority){
+        const newNode = new Node(value, priority);
+        this.heap.push(newNode);
+        let currentNodeIdx = this.heap.length -1;
+        let currentNodeParentIdx = Math.floor(currentNodeIdx/2);
+        while (this.heap[currentNodeParentIdx] && newNode.priority < this.heap[currentNodeParentIdx].priority){// bubble up from the last value swapping with the parent if lower
+            const parent = this.heap[currentNodeParentIdx]; //parent is previous node
+            this.heap[currentNodeParentIdx] = newNode; //the node at the parent index is now the new node
+            this.heap[currentNodeIdx] = parent; //the node at the current index is now the parent
+            currentNodeIdx = currentNodeParentIdx; //current node index = parent node index
+            currentNodeParentIdx = Math.floor(currentNodeIdx / 2); // parent node index is current index/2 rounded down
+        }
+        return this;
+    }
+
+    remove() {
+        if (this.heap.length < 3) {
+            const toReturn = this.heap.pop();
+            this.heap[0]= null;
+            return toReturn
+        }
+        
+        const toRemove = this.heap[1];
+        this.heap[1] = this.heap.pop();
+        let currentIdx = 1;
+        let [left, right] = [2*currentIdx, 2*currentIdx+1];
+        let currentChildIdx = this.heap[right] && this.heap[right].priority <= this.heap[left].priority ? right : left;//if right exists and it's priority is lte 
+        while(this.heap[currentChildIdx] && this.heap[currentIdx].priority >= this.heap[currentChildIdx].priority){
+            let currentNode = this.heap[currentIdx];
+            let currentChildNode = this.heap[currentChildIdx];
+            this.heap[currentChildIdx] = currentNode;
+            this.heap[currentIdx] = currentChildNode;
+            console.log(this.heap)
+        }
+        return toRemove;
+    }
+
+    // 1,
+    // 2,5
+    // 8,3,7,10
+    // 9,
+    
+    // 9,
+    // 2,5,
+    // 8,3,7,10,
+    // 1,
+    
+    // 2,
+    // 9 5
+    // 8,3 7,10
+    // remove(){
+    //     if 
+    // }
 }
 
-let h1 = new Heap();
-
-h1.add(4).add(2).add(6).add(99).add(2).add(1).add(29).add(17).add(22).add(3)
-
-console.log(h1);
+var pq = new PriorityQueue();
+pq.insert("a", 5).insert("b", 8).insert("c", 1).insert("d", 3).insert("e", 2).insert("f", 7).insert("g", 10).insert("h", 9)
+// console.log(pq)
+console.log(pq.remove());

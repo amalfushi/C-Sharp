@@ -4,3 +4,10 @@ week 1
     wed -- OOP(Game);
     thu -- Linq(Simple Crud)
     fri -- Intro to .netCore (Portfolio)
+
+week 2
+    mon -- NetCoreI (DojoDachi)
+    tue -- NetCoreII (QuotingDojo)
+    wed -- NetCoreII (TheWall);
+    thu -- ORM: Dapper (DojoLeague)
+    fri -- ORM: Entity (Wedding Planner)
