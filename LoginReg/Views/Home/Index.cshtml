@@ -1,0 +1,58 @@
+﻿@{
+    ViewData["Title"] = "LoginReg";
+}
+
+@model LoginReg.Models.User
+<form asp-controller="Home" asp-action="Register" method="POST">
+    <h2>Register</h2>
+    
+    <label asp-for="First_Name"></label>
+    <input asp-for="First_Name"/>
+    <span asp-validation-for="First_Name"></span>
+    <br>
+
+    <label asp-for="Last_Name"></label>
+    <input asp-for="Last_Name"/>
+    <span asp-validation-for="Last_Name"></span>
+    <br>
+
+    <label asp-for="Email"></label>
+    <input asp-for="Email"/>
+    <span asp-validation-for="Email"></span>
+    @if(@ViewBag.EmailError != null){
+        <span>@ViewBag.EmailError</span>
+    }
+    <br>
+
+    <label asp-for="Password"></label>
+    <input asp-for="Password"/>
+    <span asp-validation-for="Password"></span>
+    <br>
+
+    <label asp-for="C_Password"></label>
+    <input asp-for="C_Password"/>
+    <span asp-validation-for="C_Password"></span>
+    <br>
+
+    <button type="submit">Create new User</button>
+</form>
+
+<form asp-controller="Home" asp-action="Login" method="POST">
+    <h2>Login</h2>
+    @if(@ViewBag.LoginError != null){
+        <span>@ViewBag.LoginError</span>
+        <br>
+    }
+
+    <label asp-for="Email"></label>
+    <input asp-for="Email"/>
+    <span asp-validation-for="Email"></span>
+    <br>
+
+    <label asp-for="Password"></label>
+    <input asp-for="Password"/>
+    <span asp-validation-for="Password"></span>
+    <br>
+
+    <button type="submit">Login</button>
+</form>
