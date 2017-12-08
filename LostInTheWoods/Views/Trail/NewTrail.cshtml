@@ -1,0 +1,39 @@
+@{
+    ViewData["Title"] = "Lost in the Woods: New Trail";
+}
+
+@model LostInTheWoods.Models.Trail
+
+<form asp-controller="Trail" asp-action="CreateTrail" method="POST">
+    <label asp-for="Name"></label>
+    <input asp-for="Name">
+    <span asp-validation-for="Name"></span>
+    <br>
+
+    <label asp-for="Description"></label>
+    <input asp-for="Description">
+    <span asp-validation-for="Description"></span>
+    <br>
+
+    <label asp-for="Length"></label>
+    <input asp-for="Length">
+    <span asp-validation-for="Length"></span>
+    <br>
+
+    <label asp-for="ElevationChange"></label>
+    <input asp-for="ElevationChange">
+    <span asp-validation-for="ElevationChange"></span>
+    <br>
+
+    <label asp-for="Longitude"></label>
+    <input asp-for="Longitude">
+    <span asp-validation-for="Longitude"></span>
+    <br>
+
+    <label asp-for="Latitude"></label>
+    <input asp-for="Latitude">
+    <span asp-validation-for="Latitude"></span>
+    <br>
+
+    <input type="submit" value="Create New Trail" class="btn btn-primary">
+</form>

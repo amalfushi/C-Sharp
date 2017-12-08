@@ -173,4 +173,24 @@ class PriorityQueue {
 var pq = new PriorityQueue();
 pq.insert("a", 5).insert("b", 8).insert("c", 1).insert("d", 3).insert("e", 2).insert("f", 7).insert("g", 10).insert("h", 9)
 // console.log(pq)
-console.log(pq.remove());
+// console.log(pq.remove());
+
+
+//12.8
+function UnionUnsorted(arr1, arr2){
+    var newarr = [];
+    for(var i = 0; i< arr1.length; i++){
+        if(newarr.indexOf(arr1[i]) < 0){
+            newarr.push(arr1[i])
+        }
+    }
+    for(var i = 0; i< arr2.length; i++){
+        if(newarr.indexOf(arr2[i]) < 0){
+            newarr.push(arr2[i])
+        }
+    }
+    return newarr;
+}
+var a = [11,2,55,8]
+var b = [9,-3,4,2,55,9]
+console.log(UnionUnsorted(a, b));

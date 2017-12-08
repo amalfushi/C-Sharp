@@ -1,0 +1,19 @@
+@{
+    ViewData["Title"] = "Lost in the Woods";
+}
+
+@model LostInTheWoods.Models.Trail
+
+<h1>@ViewBag.trail.Name</h1><br>
+
+<h3>Description</h3>
+<p>@ViewBag.trail.Description</p><br>
+
+<h4>Trail Length:</h4>
+<p>@ViewBag.trail.Length miles</p><br>
+
+<h4>Elevation Change:</h4>
+<p>@ViewBag.trail.ElevationChange feet</p><br>
+
+<h4>Cooridinates</h4>
+<p>@ViewBag.trail.Longitude , @ViewBag.trail.Latitude</p>
