@@ -1,0 +1,23 @@
+<h1>Welcome, @ViewBag.User.FirstName @ViewBag.User.LastName</h1>
+<label>Current Balance</label>
+<input type="text" name="" id="" disabled value="$@ViewBag.User.Balance">
+
+<form asp-action="CreateTransaction" method="POST">
+    <input type="number" name="amount" id="amount">
+    <input type="submit" value="Submit">
+    @if(TempData["Error"] != null){
+        <label class="error right">You're too poor.</label>
+    }
+</form>
+<table class="table table-striped">
+    <thead>
+        <th>Amount</th>
+        <th>Date</th>
+    </thead>
+    @foreach(var t in ViewBag.User.Transactions){
+        <tr>
+            <td>@t.Amount</td>
+            <td>@t.CreatedAt</td>
+        </tr>
+    }
+</table>
