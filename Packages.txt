@@ -1,5 +1,6 @@
 Watcher:
 dotnet add package Microsoft.DotNet.Watcher.Tools -v 1.0.0
+<DotNetCliToolReference Include="Microsoft.DotNet.Watcher.Tools" Version="1.0.0" />
 
 Static:
 dotnet add package Microsoft.AspNetCore.StaticFiles -v=1.1
