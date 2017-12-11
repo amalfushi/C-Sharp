@@ -1,0 +1,41 @@
+@model BankAccounts.Models.RegisterUser
+
+<h1>Register</h1>
+
+
+<form asp-controller="BankAccount" asp-action="CreateUser" method="POST">
+    <div class="form horiz">
+        <label asp-for="FirstName"></label>
+        <input asp-for="FirstName">
+    </div>
+    <span class="error right" asp-validation-for="FirstName"></span><br>
+
+    <div class="form horiz">
+        <label asp-for="LastName"></label>
+        <input asp-for="LastName">
+    </div>
+    <span class="error right" asp-validation-for="LastName"></span><br>
+
+    <div class="form horiz">
+        <label asp-for="Email"></label>
+        <input asp-for="Email">
+    </div>
+    @if(ViewBag.InvalidEmail == true){
+        <label class="error right" for="Email">Email already registered.</label>
+    }
+    <span class="error right" asp-validation-for="Email"></span><br>
+
+    <div class="form horiz">
+        <label asp-for="Password"></label>
+        <input asp-for="Password">
+    </div>
+    <span class="error right" asp-validation-for="Password"></span><br>
+
+    <div class="form horiz">
+        <label asp-for="C_Password"></label>
+        <input asp-for="C_Password">
+    </div>
+    <span class="error right" asp-validation-for="C_Password"></span><br>
+
+    <input type="submit" value="Register">
+</form>
