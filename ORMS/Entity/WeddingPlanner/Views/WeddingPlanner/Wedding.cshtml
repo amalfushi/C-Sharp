@@ -1,0 +1,20 @@
+@{
+    ViewData["Title"] = "Wedding Planner: @ViewBag.Wedding.Wedder1 and @ViewBag.Wedding.Wedder2";
+}
+
+<h1>@ViewBag.Wedding.Wedder1 and @ViewBag.Wedding.Wedder2 Wedding</h1>
+<div class="indent">
+    <h3>Date: @String.Format("{0:MMM d, yyyy}", @ViewBag.Wedding.Date)</h3>
+
+
+    <h3>Guests</h3>
+    <ul class="undecoratedList">
+        @foreach(var guest in @ViewBag.Guests){
+            <li><h5>@guest.FirstName @guest.LastName</h5></li>
+        }
+    </ul>
+    <h3>Address</h3>
+    <div class="indent">
+        <p>@ViewBag.Wedding.Address</p>
+    </div>
+</div>

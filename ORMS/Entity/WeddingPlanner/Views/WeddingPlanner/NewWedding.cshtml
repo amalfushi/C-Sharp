@@ -1,0 +1,41 @@
+@{
+    ViewData["Title"] = "Wedding Planner: New Wedding";
+}
+@model WeddingPlanner.Models.CreWedding
+
+<h1>Plan Your Wedding!</h1>
+
+<form asp-controller="Dashboard" asp-action="CreateWedding" Method="POST">
+<!-- Wedder 1 -->
+    <div class="form horiz">
+        <label asp-for="Wedder1"></label>
+        <input asp-for="Wedder1">
+    </div>
+    <span class="error right" asp-validation-for="Wedder1"></span><br>
+
+<!-- Wedder 2 -->
+    <div class="form horiz">
+        <label asp-for="Wedder2"></label>
+        <input asp-for="Wedder2">
+    </div>
+    <span class="error right" asp-validation-for="Wedder2"></span><br>
+
+<!-- Wedding Date -->
+    <div class="form horiz">
+        <label asp-for="Date"></label>
+        <input asp-for="Date">
+    </div>
+    <span class="error right" asp-validation-for="Date"></span><br>
+    @if(ViewBag.InvalidDate == true){
+        <span class="error right">Weddings can't be in the past.</span><br>
+    }
+    
+<!-- Address -->
+    <div class="form horiz">
+        <label asp-for="Address"></label>
+        <input asp-for="Address">
+    </div>
+    <span class="error right" asp-validation-for="Address"></span><br>
+
+    <input type="submit" value="Submit">
+</form>

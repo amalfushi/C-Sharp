@@ -26,7 +26,7 @@ namespace BankAccounts.Controllers
             if(id != LogId){
                 return Redirect($"/account/{LogId}");
             }
-            System.Console.WriteLine(_context.Users.Where(b => b.UserId == LogId));
+            // System.Console.WriteLine(_context.Users.Where(b => b.UserId == LogId));
             User user = _context.Users.Include(u => u.Transactions).Where(u => u.UserId == LogId).SingleOrDefault();
 
             if(user.Transactions != null)

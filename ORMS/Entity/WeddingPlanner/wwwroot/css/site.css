@@ -35,3 +35,30 @@ textarea {
         display: none;
     }
 }
+
+.form{
+    width: 350px;
+}
+
+.horiz{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.error{
+    color:darkred;
+}
+
+#main{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.indent{
+    margin-left:30px;
+}
+
+.undecoratedList{
+    list-style: none;
+}

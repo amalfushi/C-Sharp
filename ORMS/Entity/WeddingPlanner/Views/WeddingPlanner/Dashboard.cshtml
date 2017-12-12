@@ -1,0 +1,32 @@
+@{
+    ViewData["Title"] = "Wedding Planner: Dashboard";
+}
+
+<h1>Welcome!</h1>
+
+<table class="table tabble-striped">
+    <thead>
+        <th>Wedding</th>
+        <th>Date</th>
+        <th>Guests</th>
+        <th>Action</th>
+    </thead>
+    @foreach(var wedding in ViewBag.Weddings){
+        <tr>
+            <td><a href="view/@wedding.WeddingId"> @wedding.Wedder1 and @wedding.Wedder2</a></td>
+            <td>@String.Format("{0:MMM d, yyyy}", @wedding.Date)</td>
+            <td>@wedding.Attendees.Count</td>
+            <td>@if(@wedding.CreatorId == ViewBag.UserId){
+                    <a href="delete/@wedding.WeddingId">Delete</a>
+                }
+                else if (@ViewBag.Attending.Contains(@wedding.WeddingId)){
+                    <a href="unrsvp/@wedding.WeddingId">Un-RSVP</a>
+                } else {
+                    <a href="rsvp/@wedding.WeddingId">RSVP</a>
+                }
+            </td>
+        </tr>
+    }
+</table>
+
+<a class="btn btn-primary" href="/New">New Wedding</a>

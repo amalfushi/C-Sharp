@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using MySQL.Data.EntityFrameworkCore.Extensions;
+using WeddingPlanner.Models;
 
 namespace WeddingPlanner
 {
@@ -27,8 +29,9 @@ namespace WeddingPlanner
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddSession();
+            services.AddDbContext<WeddingPlannerContext>(options => options.UseMySQL(Configuration["DBInfo:ConnectionString"]));
             // Add framework services.
-            services.AddDbContext<WeddingContext>(options => options.UseNpgsql(Configuration["DBinfo:ConnectionString"]));
             services.AddMvc();
         }
 
@@ -49,13 +52,8 @@ namespace WeddingPlanner
             }
 
             app.UseStaticFiles();
-
-            app.UseMvc(routes =>
-            {
-                routes.MapRoute(
-                    name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
-            });
+            app.UseSession();
+            app.UseMvc();
         }
     }
 }
